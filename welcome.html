@@ -1,10 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title> Welcome </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - Account Created</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Additional styles specific to welcome page */
+    .welcome-container {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-icon {
+      font-size: 72px;
+      color: #2ecc71;
+      margin-bottom: 20px;
+    }
+
+    .welcome-message {
+      font-size: 1.8em;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .welcome-text {
+      color: #7f8c8d;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .btn-dashboard {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-dashboard:hover {
+      background-color: #2980b9;
+    }
+
+    .account-details {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: left;
+    }
+
+    .detail-item {
+      margin-bottom: 10px;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: #2c3e50;
+      display: inline-block;
+      width: 120px;
+    }
+  </style>
 </head>
 <body>
-<h1>Congratulations!</h1>
-<p>Your account has been successfully created.</p>
+<div class="welcome-container">
+  <div class="welcome-icon">✓</div>
+  <h1 class="welcome-message">Congratulations!</h1>
+  <p class="welcome-text">Your account has been successfully created. Welcome to our community!</p>
+
+  <a href="#" class="btn-dashboard">Go to Dashboard</a>
+
+  <div class="account-details">
+    <h3>Your Account Information</h3>
+    <div class="detail-item">
+      <span class="detail-label">Username:</span>
+      <span id="display-username">user123</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Email:</span>
+      <span id="display-email">user@example.com</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Member Since:</span>
+      <span id="display-date">Today</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // This script would typically pull data from the server or URL parameters
+  // For demo purposes, we'll just show placeholder text
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get URL parameters (in a real app, you'd get this from your backend)
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Display submitted data (for demo purposes)
+    if (urlParams.has('username')) {
+      document.getElementById('display-username').textContent = urlParams.get('username');
+    }
+    if (urlParams.has('email')) {
+      document.getElementById('display-email').textContent = urlParams.get('email');
+    }
+
+    // Set current date
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('display-date').textContent = new Date().toLocaleDateString(undefined, options);
+  });
+</script>
 </body>
 </html>
