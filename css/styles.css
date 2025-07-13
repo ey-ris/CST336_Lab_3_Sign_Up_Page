@@ -197,3 +197,25 @@ br {
 .form-section:last-child {
     border-bottom: none;
 }
+
+.error-message {
+    display: block;
+    padding: 5px;
+    font-size: 1.1em;
+    border-radius: 3px;
+    color: red;
+    font-weight: bold;
+}
+
+.api-result {
+    font-weight: normal;
+    color: #3498db;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#suggestedPwd {
+    display: block;
+    margin: -10px 0 10px 0;
+    font-size: 0.9em;
+}
