@@ -1,43 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title> Sign Up Page </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h1> Sign Up </h1>
-<form id="signupForm" action="welcome.html">
-    First Name: <input type="text" name="fName"><br>
-    Last Name: <input type="text" name="lName"><br>
-    Gender:
-    <input type="radio" name="gender" value="m">Male<br>
-    <input type="radio" name="gender" value="f">Female<br>
-    Zip Code: <input type="text" id="zip" name="zip"><br>
-    City: <span id="city"></span><br>
-    Latitude: <span id="latitude"></span><br>
-    Longitude: <span id="longitude"></span><br><br>
+<div class="container">
+    <h1>Sign Up</h1>
+    <form id="signupForm" action="welcome.html">
+        <!-- Personal Information Section -->
+        <div class="form-section">
+            <label for="fName">First Name:</label>
+            <input type="text" id="fName" name="fName" required>
+        </div>
 
-    State:
-    <select id="state" name="state">
-        <option>Select One</option>
-        <option value="ca">California</option>
-        <option value="ny">New York</option>
-        <option value="tx">Texas</option>
-    </select> <br>
+        <div class="form-section">
+            <label for="lName">Last Name:</label>
+            <input type="text" id="lName" name="lName" required>
+        </div>
 
-    Select a County: <select id="county" name="county"></select><br>
+        <div class="form-section radio-group">
+            <label>Gender:</label>
+            <label><input type="radio" name="gender" value="m"> Male</label>
+            <label><input type="radio" name="gender" value="f"> Female</label>
+        </div>
 
-    Desired Username:
-    <input type="text" id="username" name="username"><br>
-    <span id="usernameError"></span><br>
+        <!-- Location Information Section -->
+        <div class="form-section">
+            <label for="zip">Zip Code:</label>
+            <input type="text" id="zip" name="zip" required>
+            <div class="api-results">
+                <span>City: <span id="city" class="api-result"></span></span>
+                <span>Latitude: <span id="latitude" class="api-result"></span></span>
+                <span>Longitude: <span id="longitude" class="api-result"></span></span>
+            </div>
+        </div>
 
-    Password: <input type="password" id="password" name="password"><br>
-    <span id="suggestedPwd"></span><br>
-    Type Password Again: <input type="password" id="passwordAgain"><br>
+        <div class="form-section">
+            <label for="state">State:</label>
+            <select id="state" name="state" required>
+                <option value="">Select One</option>
+                <option value="ca">California</option>
+                <option value="ny">New York</option>
+                <option value="tx">Texas</option>
+            </select>
+        </div>
 
-    <span id="passwordError"></span><br>
+        <div class="form-section">
+            <label for="county">Select a County:</label>
+            <select id="county" name="county" required>
+                <option value="">Select County</option>
+            </select>
+        </div>
 
-    <input type="submit" value="Sign up"><br>
-</form>
+        <!-- Account Information Section -->
+        <div class="form-section">
+            <label for="username">Desired Username:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="usernameError" class="error-message"></span>
+        </div>
+
+        <div class="form-section">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span id="suggestedPwd" class="api-result"></span>
+        </div>
+
+        <div class="form-section">
+            <label for="passwordAgain">Type Password Again:</label>
+            <input type="password" id="passwordAgain" required>
+            <span id="passwordError" class="error-message"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-section">
+            <input type="submit" value="Sign Up">
+        </div>
+    </form>
+</div>
+
 <script src="js/script.js"></script>
 </body>
 </html>
