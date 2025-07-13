@@ -20,7 +20,8 @@ async function displayCity() {
         document.querySelector("#latitude").innerHTML = data.latitude;
         document.querySelector("#longitude").innerHTML = data.longitude;
     } else {
-        document.querySelector("#city").innerHTML = "Invalid zip code";
+        document.querySelector("#city").innerHTML = "INVALID ZIP CODE";
+        document.querySelector("#city").style.color = "red";
         document.querySelector("#latitude").innerHTML = "";
         document.querySelector("#longitude").innerHTML = "";
     }
@@ -61,6 +62,16 @@ async function checkUsername() {
         usernameError.style.color = "red";
     }
 }
+
+// Display suggested password
+document.querySelector("#password").addEventListener("focus", async function() {
+    let url = "https://webspace.csumb.edu/~lara4594/ajax/suggestedPwd.php?length=8";
+    let response = await fetch(url);
+    let data = await response.text();
+    document.querySelector("#suggestedPwd").innerHTML = "Suggested: " + data;
+    document.querySelector("#suggestedPwd").style.color = "#3498db";
+    document.querySelector("#suggestedPwd").style.fontSize = "0.9em";
+});
 
 //Validating form data
 function validateForm(e) {
